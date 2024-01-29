@@ -120,6 +120,8 @@
     </div>
   </div>
   </div>
+  <h5 style="text-align: center;font-weight: bold">Sedang Nyari Bokep Kesukaan ...</h5>
+  <p style="text-align: center">Kalo Loading Lama Lu Refresh atau close buka lagi </p>
 {:else}
   <!-- Tampilkan data dalam bentuk kartu -->
   <div class="row">

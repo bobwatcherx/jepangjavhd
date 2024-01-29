@@ -2,7 +2,6 @@
   import { Link } from 'svelte-navigator';
   import { onMount } from 'svelte';
   import { base_domain,base_unblock } from '../../base/domain.js';
-
   export let id;
   let decodedId = decodeURIComponent(id);
   let responseData = [];

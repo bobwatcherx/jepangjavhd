@@ -1,18 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suka NGENTOT</title>
-     <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-           
+    
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <style>
+      .fab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 3px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        padding: 15px 30px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
+    <button class="fab" onclick="openSweetAlert()">Obrol Bokep</button>
+
     <script type="module" src="/src/main.ts"></script>
+    
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      function openSweetAlert() {
+        Swal.fire({
+          title: 'Para Colikiawan',
+          html: `
+          <div>
+          <iframe src="https://bobwatcherx.github.io/chatbokep" width="100%" height="500px"></iframe>
+          </div>
+          `,
+          showCloseButton: true,
+          showConfirmButton: false,
+          grow:"fullscreen"
+        });
+      }
+    </script>
+
+    <div style="margin-top: 30px">
+      <!-- HISTAT -->
+         <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+      <!-- Histats.com  START  (aync)-->
+      <script type="text/javascript">var _Hasync= _Hasync|| [];
+      _Hasync.push(['Histats.start', '1,4840851,4,407,118,80,00011111']);
+      _Hasync.push(['Histats.fasi', '1']);
+      _Hasync.push(['Histats.track_hits', '']);
+      (function() {
+      var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+      hs.src = ('//s10.histats.com/js15_as.js');
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+      })();</script>
+      <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4840851&101" alt="hit counter script" border="0"></a></noscript>
+      <!-- Histats.com  END  -->
+
+    </div>
   </body>
 </html>
