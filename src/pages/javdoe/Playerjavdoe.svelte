@@ -93,7 +93,7 @@ function changepage(code){
        <!-- DOWNLOAD -->
        <div class="container" style="margin-top: 10px;margin-bottom: 10px">
          <a 
-         href={responseData.download_link_url}
+         href={`https://cuty.io/quick?token=3c2f8445e662326c2ebcd8d60&url=` + responseData.download_link_url}
          target="_blank"
          class="btn waves waves-effect pink"
          style="width: 100%" 
