@@ -9,10 +9,8 @@
   let loadmore = false
   onMount(async () => {
     try {
-      // Lakukan permintaan HTTP
-      const response = await fetch(
-        base_domain + "/home/javdoe"
-      );
+       let randompage = Math.floor(Math.random() * 600) + 1;
+      const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${randompage}`);
 
       // Periksa status respons
       if (response.ok) {
@@ -120,12 +118,12 @@
     </div>
   </div>
   </div>
-  <h5 style="text-align: center;font-weight: bold">Sedang Nyari Bokep Kesukaan ...</h5>
+  <h5 style="text-align: center;font-weight: bold">Sedang Nyari Bokep Kesukaan Ku..</h5>
   <p style="text-align: center">Kalo Loading Lama Lu Refresh atau close buka lagi </p>
 {:else}
   <!-- Tampilkan data dalam bentuk kartu -->
   <div class="row">
-    <h5 style="font-weight: bold">Semua Bokep Terbaru</h5>
+    <h5 style="font-weight: bold">Semua Bokep TERMONTOK</h5>
     {#each videos as video }
       <div class="col s6 m2 l2">
         <div class="card">
