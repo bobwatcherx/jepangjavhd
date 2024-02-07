@@ -9,7 +9,7 @@
   let loadmore = false
   onMount(async () => {
     try {
-       let randompage = Math.floor(Math.random() * 600) + 1;
+       let randompage = Math.floor(Math.random() * 1000) + 1;
       const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${randompage}`);
 
       // Periksa status respons
@@ -124,6 +124,9 @@
   <!-- Tampilkan data dalam bentuk kartu -->
   <div class="row">
     <h5 style="font-weight: bold">Semua Bokep TERMONTOK</h5>
+    <div class="container mt-2 mb-1">
+      <Link to="/cari" class="btn waves waves-effect pink">Cari Artis atau Kode BOKEP </Link>
+    </div>
     {#each videos as video }
       <div class="col s6 m2 l2">
         <div class="card">

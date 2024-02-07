@@ -6,6 +6,7 @@
   // JAVDOE
   import Homejavdoe from './pages/javdoe/Homejavdoe.svelte'
   import Playerjavdoe from './pages/javdoe/Playerjavdoe.svelte'
+  import Carijavdoe from './pages/javdoe/Carijavdoe.svelte'
 
 </script>
 
@@ -19,6 +20,9 @@
 
     <Route path="/">
       <Homejavdoe />
+    </Route>
+    <Route path="/cari">
+      <Carijavdoe />
     </Route>
     <Route path="/player/:id" let:params>
       <Playerjavdoe id={params.id} />
