@@ -23,7 +23,6 @@ async function getdetail(){
       const data = await response.json();
       responseData = data;
       videoplayer = responseData.playembed_urls[0]
-      console.log(responseData.playembed_urls)
     } catch (error) {
       console.error('Error fetching data:', error);
     }finally {
