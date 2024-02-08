@@ -7,7 +7,7 @@
   let responseData = [];
  let loading = true; // Add a loading indicator
 
-  
+  let videoplayer = ""
 
 async function getdetail(){
   try {
@@ -22,6 +22,8 @@ async function getdetail(){
 
       const data = await response.json();
       responseData = data;
+      videoplayer = responseData.playembed_urls[0]
+      console.log(responseData.playembed_urls)
     } catch (error) {
       console.error('Error fetching data:', error);
     }finally {
@@ -83,8 +85,9 @@ function changepage(code){
       {#if loading == false}
       <!-- IFRAME -->
       <div style="margin-top: 15px">
-        <iframe src={responseData.playembed_url}
+        <iframe src={videoplayer}
       allowfullscreen="true"
+      allowscrolling="no"
       width="100%" height="330px" 
        frameborder="0"></iframe>
        <br>
@@ -95,6 +98,16 @@ function changepage(code){
          <b>Multi server ke yg lain </b> . kalo masih error juga 
          <b>lu Refresh </b> . kalo masih erorr juga <b>lu Nonton Bokep laen aja</b>
        </p>
+       <h5>Pilih server nonton . jika Error </h5>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+          {#each responseData.playembed_urls as player, index}
+            <button 
+            class="btn waves-effect waves purple"
+            on:click={() => videoplayer = player}>server {index+1}</button>
+            <br><br>
+          {/each}
+        </div>
+       
        <br>
        <h5 style="font-size: 13px;color:#870754;font-weight: bold">{responseData.title}</h5>
        <br>
