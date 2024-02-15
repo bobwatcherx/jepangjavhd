@@ -1,7 +1,7 @@
 <script>
   import { Link } from 'svelte-navigator';
   import { onMount } from 'svelte';
-  import { base_domain,base_unblock } from '../../base/domain.js';
+  import { base_domain,base_unblock,download_video } from '../../base/domain.js';
   export let id;
   let decodedId = decodeURIComponent(id);
   let responseData = [];
@@ -41,6 +41,27 @@ function changepage(code){
   decodedId = decodeURIComponent(id)
   getdetail()
 }
+ function opentutor() {
+
+    Swal.fire({
+        title: "Tutor Download BOKEP",
+        html: `
+            <div>
+                <h6 style="color:red">Lu back aja Setiap kebuka web iklan</h6>
+                <iframe src="${download_video}"
+                    width="100%"
+                    allowfullscreen
+                />
+            </div>
+        `,
+        showConfirmButton: false,
+        showCloseButton: true,
+        customClass: {
+            content: 'sweetalert-video-content',
+        },
+    });
+}
+
 </script>
 
 <svelte:head>
@@ -110,6 +131,15 @@ function changepage(code){
        <br>
        <h5 style="font-size: 13px;color:#870754;font-weight: bold">{responseData.title}</h5>
        <br>
+       <div class="card" style="border:1px solid orange;padding:5px">
+        <div class="container">
+          <h6 style="font-weight: bold">Video Tutorial DOWNLOAD BOKEP </h6>
+          <p style="color:red;font-weight: bold">Pas Klik Download . kalo ke buka web iklan di back aja terus sampe lu bisa lewatin iklan nya </p>
+         <button class="btn waves waves-effect purple"
+          on:click={opentutor}
+         >Tutorial Download BOKEP</button>
+        </div>
+       </div>
        <!-- DOWNLOAD -->
       <div class="container" style="margin-top: 10px;margin-bottom: 10px">
        {#each responseData.download_link_url as downloadLink, index}

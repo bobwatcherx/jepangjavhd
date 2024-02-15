@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "svelte-navigator": "^3.2.2",
-    "sweetalert2": "^11.10.4"
+    "sweetalert2": "^11.10.5"
   }
 }
