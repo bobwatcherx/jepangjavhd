@@ -111,11 +111,11 @@ function changepage(code){
       width="100%" height="330px" 
        frameborder="0"></iframe>
        <br>
-       <p style="background-color: #b0096d;padding: 2px;
+       <p style="background-color:red;padding: 2px;
        margin:5px;
        color: white">
          Kalo <b>Video Error</b> ga bisa di tonton . lu ganti
-         <b>Multi server ke yg lain </b> . kalo masih error juga 
+         <b> server Di bawah Ini ke yg lain </b> . kalo masih error juga 
          <b>lu Refresh </b> . kalo masih erorr juga <b>lu Nonton Bokep laen aja</b>
        </p>
        <h5>Pilih server nonton . jika Error </h5>
