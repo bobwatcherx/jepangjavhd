@@ -9,7 +9,7 @@
   let loadmore = false
   onMount(async () => {
     try {
-       let randompage = Math.floor(Math.random() * 1000) + 1;
+       let randompage = Math.floor(Math.random() * 2000) + 1;
       const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${randompage}`);
 
       // Periksa status respons
