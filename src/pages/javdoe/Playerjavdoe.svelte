@@ -118,7 +118,7 @@ function changepage(code){
          <b> server Di bawah Ini ke yg lain </b> . kalo masih error juga 
          <b>lu Refresh </b> . kalo masih erorr juga <b>lu Nonton Bokep laen aja</b>
        </p>
-       <h5>Pilih server nonton . jika Error </h5>
+       <h5>Pilih server nonton . jika video Error </h5>
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
           {#each responseData.playembed_urls as player, index}
             <button 
@@ -141,20 +141,24 @@ function changepage(code){
         </div>
        </div>
        <!-- DOWNLOAD -->
-      <div class="container" style="margin-top: 10px;margin-bottom: 10px">
+       <div class="card">
+          <div class="container">
+            <h5 style="font-weight: bold">Link Download Dan cadangannya</h5>
+      <div  style="margin-top: 10px;margin-bottom: 10px">
        {#each responseData.download_link_url as downloadLink, index}
           <a 
             href={`https://cuty.io/quick?token=3c2f8445e662326c2ebcd8d60&url=${downloadLink}`}
             target="_blank"
-            class="btn waves waves-effect pink"
-            style="width: 100%" 
-          >Download BOKEP #{index+1}</a>
+            style="width: 100%;color: #ba184b;font-weight: bold" 
+          >Link Download #{index+1} {downloadLink}</a>
           <br>
           <br>
         {/each}
 
         <p style="color:red;font-weight: bold">Lewatin Iklannya kalo mau DOWNLOAD BOKEP</p>
       </div>
+          </div>
+       </div>
 
 
        
