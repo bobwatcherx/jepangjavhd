@@ -3,6 +3,7 @@
   // Inisialisasi variabel untuk menyimpan data dari API
   import Swal from 'sweetalert2';
   import { base_domain } from '../../base/domain.js';
+  import {simpanbokep} from '../../lib/savelocal.js'
 
   let data = [];
   let searchvalue = ""
@@ -48,12 +49,13 @@
  
 </script>
 
-<div class="container mt-2">
+<div class="container " style="margin-top: 30px">
   <Link to="/" class="btn waves waves-effect">Kembali</Link>
+  <Link to="/simpan" class="btn waves waves-effect blue">Bokep Tersimpan</Link>
 </div>
 
 <div class="container">
-  <h5 style="font-weight: bold">Cari Bokep Artis Atau Kode </h5>
+  <h5 style="font-weight: bold">Cari Bokep jepang Artis Atau Kode </h5>
 </div>
 
 <div class="card z-depth-2" style="padding: 5px">
@@ -75,7 +77,7 @@
   <div class="col s6 m2 l2">
     <div class="card z-depth-2" style="margin-bottom: 10px">
     <div class="card-image">
-      <img src={video.img} alt={video.title}>
+    
     </div>
     <div class="container">
        {#if video.title.length > 40}
@@ -85,7 +87,12 @@
             {/if}
       <p style="font-weight: bold"> {video.uploaded}</p>
     </div>
-    <div class="card-action">
+    <div style="display: flex;justify-content: space-around;">
+            <button class="btn waves waves-effect blue"
+            on:click={()=>simpanbokep(video)}
+            >
+              simpan
+            </button>
       <Link to={`/player/${encodeURIComponent(video.url)}`} class="btn waves waves-effect purple">
                 Nonton
               </Link>

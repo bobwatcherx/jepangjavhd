@@ -3,6 +3,9 @@
   import { base_domain } from '../../base/domain.js';
   import Swal from 'sweetalert2';
   import {Link } from 'svelte-navigator'
+
+  import {simpanbokep} from '../../lib/savelocal.js'
+
   let videos = [];
   let loading = true; // Tambahkan variabel loading
   let currentpage = 1
@@ -118,14 +121,17 @@
     </div>
   </div>
   </div>
-  <h5 style="text-align: center;font-weight: bold">Sedang Nyari Bokep Kesukaan Ku..</h5>
+  <h5 style="text-align: center;font-weight: bold">Mencari Bokep Jepang Montok ...</h5>
   <p style="text-align: center">Kalo Loading Lama Lu Refresh atau close buka lagi </p>
 {:else}
   <!-- Tampilkan data dalam bentuk kartu -->
-  <div class="row">
+  <div class="container" style="margin-top: 30px">
     <h5 style="font-weight: bold">Semua Bokep TERMONTOK</h5>
-    <div class="container mt-2 mb-1">
-      <Link to="/cari" class="btn waves waves-effect pink">Cari Artis atau Kode BOKEP </Link>
+  </div>
+  <div class="row">
+    <div class=" mt-2 mb-1">
+      <Link to="/cari" class="btn waves waves-effect pink">Cari Artis Bokep</Link>
+      <Link to="/simpan" class="btn waves waves-effect blue">Bokep Tersimpan</Link>
     </div>
     {#each videos as video }
       <div class="col s6 m2 l2">
@@ -151,8 +157,15 @@
             </div>
           </div>
           <div style="display: flex;justify-content: end;margin-top: 10px">
+
+            <button class="btn waves waves-effect blue"
+            on:click={()=>simpanbokep(video)}
+            >
+              simpan
+            </button>
+
            <Link to={`/player/${encodeURIComponent(video.url)}`} class="btn waves waves-effect purple">
-                Pengen Nonton
+                 Nonton
               </Link>
           </div>
         </div>

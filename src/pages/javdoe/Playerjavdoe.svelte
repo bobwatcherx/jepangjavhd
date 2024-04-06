@@ -2,6 +2,8 @@
   import { Link } from 'svelte-navigator';
   import { onMount } from 'svelte';
   import { base_domain,base_unblock,download_video } from '../../base/domain.js';
+  import {simpanbokep} from '../../lib/savelocal.js'
+
   export let id;
   let decodedId = decodeURIComponent(id);
   let responseData = [];
@@ -93,13 +95,17 @@ function changepage(code){
 </style>
 
 
-<div style="display: flex;justify-content: space-around;">
+<div  class="container" style="margin-top: 30px">
   <Link to="/" class="btn waves waves-effect pink">Kembali</Link>
   <Link to="/request" class="btn waves waves-effect purple">Request Bokep</Link>
 
   
 </div>
-
+<div style="margin-top: 10px;"class="container">
+    <Link to="/simpan" class="btn waves waves-effect blue">bokep tersimpan</Link>
+    <Link to="/cari" class="btn waves waves-effect pink">Cari Bokep</Link>
+    
+</div>
 <div class="row">
     <div class="col12 s12 m4 l4">
       {#if loading == false}
@@ -122,7 +128,7 @@ function changepage(code){
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
           {#each responseData.playembed_urls as player, index}
             <button 
-            class="btn waves-effect waves purple"
+            class="btn waves-effect waves pink"
             on:click={() => videoplayer = player}>server {index+1}</button>
             <br><br>
           {/each}
@@ -214,9 +220,14 @@ function changepage(code){
             {/if}
             
           </div>
-          <div style="display: flex;justify-content: end;margin-top: 10px">
+          <div style="display: flex;justify-content: space-around;margin-top: 10px">
+             <button class="btn waves waves-effect blue"
+            on:click={()=>simpanbokep(rl)}
+            >
+              simpan
+            </button>
            <button on:click={changepage(rl.url)} class="btn waves waves-effect purple">
-                Pengen Nonton
+                 Nonton
               </button>
           </div>
         </div>

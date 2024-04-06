@@ -7,21 +7,14 @@
   import Homejavdoe from './pages/javdoe/Homejavdoe.svelte'
   import Playerjavdoe from './pages/javdoe/Playerjavdoe.svelte'
   import Carijavdoe from './pages/javdoe/Carijavdoe.svelte'
+  import Simpanjavdoe from './pages/javdoe/Simpanjavdoe.svelte'
 
 
-  // doodstream
-  import Homedood from './pages/dood_indo/Homedood.svelte'
-  import Caridood from './pages/dood_indo/Caridood.svelte'
-
- function getRandomComponent() {
-    const randomNumber = Math.random();
-    return randomNumber < 0.5 ? 'Homejavdoe' : 'Homedood';
-  }
 
 </script>
 
 <Router>
-  <Navbarmenu/>
+  <!-- <Navbarmenu/> -->
   <div>
     <Route path="/request">
       <Request />
@@ -29,11 +22,7 @@
 
 
      <Route path="/">
-      {#if getRandomComponent() === 'Homedood'}
-        <Homedood />
-      {:else}
         <Homejavdoe />
-      {/if}
     </Route>
     <Route path="/jepang">
       <Homejavdoe />
@@ -41,19 +30,13 @@
     <Route path="/cari">
       <Carijavdoe />
     </Route>
+     <Route path="/simpan">
+      <Simpanjavdoe />
+    </Route>
     <Route path="/player/:id" let:params>
       <Playerjavdoe id={params.id} />
     </Route>
 
-    <!-- dood -->
-     <Route path="/dood" >
-      <Homedood/>
-    </Route>
-    <Route path="/caridood" >
-      <Caridood/>
-    </Route>
-    <Route path="/p/:id " let:params>
-      <Homedood id={params.id}/>
-    </Route>
+  
   </div>
 </Router>
