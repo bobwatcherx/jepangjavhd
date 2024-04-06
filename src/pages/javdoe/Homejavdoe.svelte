@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { base_domain } from '../../base/domain.js';
+  import { base_domain,max_page_random } from '../../base/domain.js';
   import Swal from 'sweetalert2';
   import {Link } from 'svelte-navigator'
 
@@ -12,7 +12,7 @@
   let loadmore = false
   onMount(async () => {
     try {
-       let randompage = Math.floor(Math.random() * 2000) + 1;
+       let randompage = Math.floor(Math.random() * max_page_random) + 1;
       const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${randompage}`);
 
       // Periksa status respons
