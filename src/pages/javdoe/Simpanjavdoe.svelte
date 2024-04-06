@@ -2,7 +2,7 @@
 	import { Link,navigate } from 'svelte-navigator';
 	import { onMount } from 'svelte';
 	import Swal from 'sweetalert2';
-
+	import {direct_fun} from '../../lib/directlinkclick.js'
 	let savedmovies = [];
 
 	function getSavedMovies() {
@@ -107,9 +107,13 @@
               hapus
             </button>
 
-           <Link to={`/player/${encodeURIComponent(video.url)}`} class="btn waves waves-effect blue">
-                 Nonton
-              </Link>
+            <button class="btn waves waves-effect blue"
+            on:click={()=>direct_fun(video.url)}
+            >
+              nonton
+            </button>
+
+          
           </div>
         </div>
       </div>

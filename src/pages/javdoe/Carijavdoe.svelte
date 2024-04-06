@@ -4,6 +4,7 @@
   import Swal from 'sweetalert2';
   import { base_domain } from '../../base/domain.js';
   import {simpanbokep} from '../../lib/savelocal.js'
+  import {direct_fun} from '../../lib/directlinkclick.js'
 
   let data = [];
   let searchvalue = ""
@@ -77,7 +78,7 @@
   <div class="col s6 m2 l2">
     <div class="card z-depth-2" style="margin-bottom: 10px">
     <div class="card-image">
-    
+      <img src={video.img} style="width: 100%" alt="">
     </div>
     <div class="container">
        {#if video.title.length > 40}
@@ -93,9 +94,11 @@
             >
               simpan
             </button>
-      <Link to={`/player/${encodeURIComponent(video.url)}`} class="btn waves waves-effect purple">
-                Nonton
-              </Link>
+       <button class="btn waves waves-effect purple"
+            on:click={()=>direct_fun(video.url)}
+            >
+              nonton
+            </button>
     </div>
   </div>
   </div>

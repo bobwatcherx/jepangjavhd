@@ -5,6 +5,7 @@
   import {Link } from 'svelte-navigator'
 
   import {simpanbokep} from '../../lib/savelocal.js'
+  import {direct_fun} from '../../lib/directlinkclick.js'
 
   let videos = [];
   let loading = true; // Tambahkan variabel loading
@@ -164,9 +165,12 @@
               simpan
             </button>
 
-           <Link to={`/player/${encodeURIComponent(video.url)}`} class="btn waves waves-effect purple">
-                 Nonton
-              </Link>
+            <button
+            class="btn waves waves-effect purple"
+            on:click={()=>direct_fun(video.url)}
+            >
+              nonton
+            </button>
           </div>
         </div>
       </div>

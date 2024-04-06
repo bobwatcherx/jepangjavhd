@@ -3,12 +3,14 @@
   import { onMount } from 'svelte';
   import { base_domain,base_unblock,download_video } from '../../base/domain.js';
   import {simpanbokep} from '../../lib/savelocal.js'
+import { directlink_url } from '../../base/domain.js';
+  import Swal from 'sweetalert2';
 
   export let id;
   let decodedId = decodeURIComponent(id);
   let responseData = [];
- let loading = true; // Add a loading indicator
-
+ let loading = true; 
+ let direct_iframe = true
   let videoplayer = ""
 
 async function getdetail(){
@@ -28,7 +30,6 @@ async function getdetail(){
     } catch (error) {
       console.error('Error fetching data:', error);
     }finally {
-      // Set loading to false once the request is complete
       loading = false;
     }
 }
@@ -37,11 +38,19 @@ onMount( () => {
     getdetail()
   });
 
-function changepage(code){
-      loading = true;
-  id = code
-  decodedId = decodeURIComponent(id)
-  getdetail()
+function changepage(url){
+  direct_iframe = true
+    const randomChoice = Math.floor(Math.random() * 2) + 1;
+    if (randomChoice === 2) {
+        window.open(directlink_url, "_blank");
+        
+    } else {
+       loading = true;
+        id = url
+        decodedId = decodeURIComponent(id)
+        getdetail()
+    }
+  
 }
  function opentutor() {
 
@@ -64,6 +73,22 @@ function changepage(code){
     });
 }
 
+function opendirectlink(){
+     window.open(directlink_url,"_blank")
+    direct_iframe = false
+}
+
+
+function gantiserver(player){
+  videoplayer = player
+     Swal.fire({
+      position: 'top-center',
+      icon: "success",
+      title: "Server Bokep Sedang Di ganti...",
+      showConfirmButton: false,
+      timer: 1500
+    });
+}
 </script>
 
 <svelte:head>
@@ -75,7 +100,7 @@ function changepage(code){
 
 
 <style>
-  /* Tambahkan gaya sesuai kebutuhan */
+ 
   .row {
     display: flex;
     flex-wrap: wrap;
@@ -111,11 +136,32 @@ function changepage(code){
       {#if loading == false}
       <!-- IFRAME -->
       <div style="margin-top: 15px">
-        <iframe src={videoplayer}
+        <!-- direct -->
+        {#if direct_iframe}
+      <div class="card z-depth-5" style="position: relative; "
+      on:click={opendirectlink}
+      >
+            <img src={responseData.img_src} alt="Video Thumbnail" width="100%">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);animation: zoomAnimation 5s infinite alternate;">
+              <button style="background-color: white; border: none; width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>
+              </button>
+            </div>
+            <p style="font-weight: bold;text-align: center;font-size: 15px">Klik Untuk memulai Video</p>
+          </div>
+        {:else}
+         <iframe src={videoplayer}
       allowfullscreen="true"
       allowscrolling="no"
       width="100%" height="330px" 
        frameborder="0"></iframe>
+        {/if}
+
+
+
        <br>
        <p style="background-color:red;padding: 2px;
        margin:5px;
@@ -124,12 +170,12 @@ function changepage(code){
          <b> server Di bawah Ini ke yg lain </b> . kalo masih error juga 
          <b>lu Refresh </b> . kalo masih erorr juga <b>lu Nonton Bokep laen aja</b>
        </p>
-       <h5>Pilih server nonton . jika video Error </h5>
+       <h5 style="font-weight: bold">Pilih server nonton . jika video Error </h5>
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
           {#each responseData.playembed_urls as player, index}
             <button 
             class="btn waves-effect waves pink"
-            on:click={() => videoplayer = player}>server {index+1}</button>
+            on:click={() => gantiserver(player)}>server {index+1}</button>
             <br><br>
           {/each}
         </div>
@@ -150,6 +196,7 @@ function changepage(code){
        <div class="card">
           <div class="container">
             <h5 style="font-weight: bold">Link Download Dan cadangannya</h5>
+            <p style="background-color: red;color: white;padding: 3px;font-weight: bold">jangan Pake Link Sbchill.com dan mycloudzz.com itu pasti error</p>
       <div  style="margin-top: 10px;margin-bottom: 10px">
        {#each responseData.download_link_url as downloadLink, index}
           <a 
