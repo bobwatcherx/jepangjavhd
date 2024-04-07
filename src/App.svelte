@@ -33,8 +33,8 @@
      <Route path="/simpan">
       <Simpanjavdoe />
     </Route>
-    <Route path="/player/:id" let:params>
-      <Playerjavdoe id={params.id} />
+    <Route path="/player/:id/:title" let:params>
+      <Playerjavdoe id={params.id} title={params.title}/>
     </Route>
 
   

@@ -1,6 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import { base_domain,max_page_random } from '../../base/domain.js';
+  import { 
+    base_domain,
+    max_page_random,
+    unblock_player
+     } from '../../base/domain.js';
   import Swal from 'sweetalert2';
   import {Link } from 'svelte-navigator'
 
@@ -9,7 +13,6 @@
 
   let videos = [];
   let loading = true; // Tambahkan variabel loading
-  let currentpage = 1
   let loadmore = false
   onMount(async () => {
     try {
@@ -35,10 +38,10 @@
 
   async function loadotherpage(){
     loadmore = true
-    currentpage++
+    let randompage = Math.floor(Math.random() * max_page_random) + 1;
 
     Swal.fire({
-    position: 'top-end',
+    position: 'top-center',
     icon: "success",
     title: "GW Tambahin BOKEP LAGI",
     showConfirmButton: false,
@@ -46,7 +49,7 @@
   });
 
     try {
-      const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${currentpage}`);
+      const response = await fetch(`${base_domain}/otherpage/javdoe/?page=${randompage}`);
       const result = await response.json();
       // Handle the fetched data here
       videos = [...videos, ...(result.data || [])];
@@ -59,19 +62,25 @@
   }
 
 
-  function showtrailer(trailer) {
+ function showtrailer(trailer) {
+    // Ganti bagian trailer yang lama dengan trailer yang baru
+    var newTrailer = trailer.replace(
+        'https://nodeunblock-1-l4062444.deta.app/proxy/',
+        `${unblock_player}/`
+    );
     Swal.fire({
-      title: "Trailer Bokep",
-      html: `
-        <video width="100%" height="auto" autoplay="true" controls>
-          <source src="${trailer}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      `,
-      showCloseButton: true,
-      showConfirmButton: false,
+        title: "Trailer Bokep",
+        html: `
+            <video width="100%" height="auto" autoplay="true" controls>
+                <source src="${newTrailer}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `,
+        showCloseButton: true,
+        showConfirmButton: false,
     });
-  }
+}
+
 </script>
 
 <style>
@@ -129,11 +138,13 @@
   <div class="container" style="margin-top: 30px">
     <h5 style="font-weight: bold">Semua Bokep TERMONTOK</h5>
   </div>
-  <div class="row">
-    <div class=" mt-2 mb-1">
-      <Link to="/cari" class="btn waves waves-effect pink">Cari Artis Bokep</Link>
-      <Link to="/simpan" class="btn waves waves-effect blue">Bokep Tersimpan</Link>
+    <div class="row">
+        <div class=" mt-2 mb-1">
+        <Link to="/cari" class="btn waves waves-effect pink">Cari Artis Bokep</Link>
+        <Link to="/simpan" class="btn waves waves-effect blue">Bokep Tersimpan</Link>
+      </div>
     </div>
+  <div class="row">
     {#each videos as video }
       <div class="col s6 m2 l2">
         <div class="card">

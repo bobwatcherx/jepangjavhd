@@ -8,6 +8,6 @@ export function direct_fun(url) {
         window.open(directlink_url, "_blank");
        
     } else {
-        navigate(`/player/${encodeURIComponent(url)}`);
+        navigate(`/player${url}`);
     }
 }

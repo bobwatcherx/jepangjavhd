@@ -50,19 +50,7 @@
 		    }
 		};
 
- function showtrailer(trailer) {
-    Swal.fire({
-      title: "Trailer Bokep",
-      html: `
-        <video width="100%" height="auto" autoplay="true" controls>
-          <source src="${trailer}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      `,
-      showCloseButton: true,
-      showConfirmButton: false,
-    });
-  }
+
 
 </script>
 
@@ -91,13 +79,6 @@
             {:else}
               <p style="font-weight: bold;color:#a10d54">{video.title}</p>
             {/if}
-            <div style="display: flex;justify-content: center;">
-              {#if video.trailer_source_url != ""}
-                <button class="btn waves waves-effect pink" on:click={() => showtrailer(video.trailer_source_url)}>
-                  Lihat Trailer
-                </button>
-              {/if}
-            </div>
           </div>
           <div style="display: flex;justify-content: end;margin-top: 10px">
 

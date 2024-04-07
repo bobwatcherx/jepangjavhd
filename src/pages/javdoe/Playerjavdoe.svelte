@@ -7,7 +7,8 @@ import { directlink_url } from '../../base/domain.js';
   import Swal from 'sweetalert2';
 
   export let id;
-  let decodedId = decodeURIComponent(id);
+  export let title;
+  let base_id = `/${id}/${title}`
   let responseData = [];
  let loading = true; 
  let direct_iframe = true
@@ -21,7 +22,7 @@ async function getdetail(){
           'Accept': 'application/json',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `url=${encodeURIComponent(decodedId)}`
+        body: `url=${base_id}`
       });
 
       const data = await response.json();
@@ -39,6 +40,7 @@ onMount( () => {
   });
 
 function changepage(url){
+  base_id = url
   direct_iframe = true
     const randomChoice = Math.floor(Math.random() * 2) + 1;
     if (randomChoice === 2) {
@@ -46,8 +48,6 @@ function changepage(url){
         
     } else {
        loading = true;
-        id = url
-        decodedId = decodeURIComponent(id)
         getdetail()
     }
   

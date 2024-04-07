@@ -7,7 +7,7 @@ export   function simpanbokep(video) {
       position: 'top-center',
       icon: "success",
       toast:true,
-      title: "Bokep telah disimpan!",
+      title: "Bokep Montok Behasil disimpan!",
       showConfirmButton: false,
       timer: 1500
     });
